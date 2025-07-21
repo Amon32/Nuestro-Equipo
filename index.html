@@ -3,72 +3,622 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestro Equipo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="Página oficial del equipo IF01-T3 - Conoce a nuestros miembros">
+    <title>Equipo IF01-T3 | Profesionales en Tecnología</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* [Todos los estilos CSS anteriores se mantienen igual] */
-        /* ... */
+        :root {
+            --primary: #4a6bff;
+            --secondary: #6e48aa;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --gray: #e2e8f0;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --danger: #f56565;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-size: 2rem;
+            color: var(--dark);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 4rem 0;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .member-card:hover .member-image {
+            opacity: 0.9;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .member-position {
+            display: inline-block;
+            background: rgba(74, 107, 255, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .member-bio {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .view-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .view-btn:hover {
+            background: var(--secondary);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            padding: 20px;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--danger);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            border: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            background: #c53030;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-info {
+            flex: 1;
+        }
+
+        .modal-name {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-position {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .personal-data {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: rgba(74, 107, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .data-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .data-label {
+            font-weight: 600;
+            color: var(--dark);
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 0.9rem;
+        }
+
+        .data-value {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .modal-bio {
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(74, 107, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .modal-body {
+                flex-direction: row;
+                gap: 3rem;
+            }
+
+            .modal-image {
+                width: 300px;
+                height: 350px;
+                margin-bottom: 0;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .personal-data {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- [Todo el HTML anterior se mantiene igual hasta el script] -->
-    <!-- ... -->
+    <header>
+        <div class="header-content">
+            <h1>Equipo IF01-T3</h1>
+            <p class="subtitle">Profesionales en tecnología comprometidos con la excelencia y la innovación</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title">Nuestros Integrantes</h2>
+                <div class="members-grid" id="membersGrid">
+                    <!-- Miembros se cargarán dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div class="modal" id="memberModal">
+            <div class="modal-content">
+                <button class="close-modal" id="closeModal">&times;</button>
+                <div class="modal-body" id="modalBody">
+                    <!-- Contenido del modal se cargará dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">IF01-T3</div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Inicio</a>
+                    <a href="#" class="footer-link">Equipo</a>
+                    <a href="#" class="footer-link">Contacto</a>
+                </div>
+                <p class="copyright">© 2023 Equipo IF01-T3. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Datos de los miembros del equipo
+        // Datos del equipo
         const teamMembers = [
             {
                 id: 1,
                 name: "Isaac Cova",
                 position: "Desarrollador Fullstack",
-                bio: "Isaac es un desarrollador fullstack con experiencia en múltiples tecnologías web. Apasionado por crear soluciones tecnológicas innovadoras y eficientes. Siempre busca aprender nuevas tecnologías y mejorar sus habilidades.",
+                bio: "Isaac es un desarrollador fullstack con 5 años de experiencia en tecnologías web modernas. Especializado en JavaScript, React y Node.js, ha liderado el desarrollo de múltiples aplicaciones empresariales. Apasionado por la arquitectura de software limpia y las buenas prácticas de desarrollo.",
                 cedula: "26.070.563",
-                fechaNacimiento: "15/03/1990",
+                fechaNacimiento: "15 de marzo de 1990",
                 telefono: "+58 412-5551234",
                 seccion: "IF01-T3",
-                image: "isaac.jpg",  // Cambia por tu imagen
+                image: "isaac.jpg",
                 social: [
-                    { name: "linkedin", url: "https://linkedin.com/in/isaaccova" },
-                    { name: "github", url: "https://github.com/isaaccova" },
-                    { name: "twitter", url: "https://twitter.com/isaaccova" }
+                    { icon: "linkedin", url: "#" },
+                    { icon: "github", url: "#" },
+                    { icon: "twitter", url: "#" },
+                    { icon: "envelope", url: "mailto:isaac@example.com" }
                 ]
             },
             {
                 id: 2,
                 name: "Neomar Mejías",
                 position: "Diseñador UX/UI",
-                bio: "Neomar es un diseñador especializado en experiencia de usuario e interfaces. Combina su creatividad con metodologías ágiles para crear diseños funcionales y atractivos. Su enfoque centrado en el usuario garantiza productos intuitivos y fáciles de usar.",
+                bio: "Neomar combina su formación en diseño gráfico con un máster en Experiencia de Usuario para crear interfaces intuitivas y hermosas. Con 4 años de experiencia en diseño de productos digitales, ha trabajado con startups y grandes empresas, siempre enfocado en resolver problemas reales de los usuarios.",
                 cedula: "31.468.431",
-                fechaNacimiento: "22/07/1988",
+                fechaNacimiento: "22 de julio de 1988",
                 telefono: "+58 414-5555678",
                 seccion: "IF01-T3",
-                image: "neomar.jpg",  // Cambia por tu imagen
+                image: "neomar.jpg",
                 social: [
-                    { name: "linkedin", url: "https://linkedin.com/in/neomarmejias" },
-                    { name: "behance", url: "https://behance.net/neomarmejias" },
-                    { name: "instagram", url: "https://instagram.com/neomar.design" }
+                    { icon: "linkedin", url: "#" },
+                    { icon: "behance", url: "#" },
+                    { icon: "dribbble", url: "#" },
+                    { icon: "envelope", url: "mailto:neomar@example.com" }
                 ]
             },
             {
                 id: 3,
                 name: "Alejandro Medina",
                 position: "Ingeniero de Sistemas",
-                bio: "Alejandro es un ingeniero de sistemas con amplia experiencia en arquitectura de software y bases de datos. Especializado en soluciones escalables y seguras, siempre busca optimizar el rendimiento de las aplicaciones. Su enfoque metódico garantiza sistemas robustos y confiables.",
+                bio: "Alejandro es ingeniero de sistemas con especialización en bases de datos y arquitecturas escalables. Con certificaciones en AWS y Google Cloud, ha implementado soluciones en la nube para empresas de diversos sectores. Su enfoque metódico y atención al detalle garantizan sistemas robustos y confiables.",
                 cedula: "28.291.142",
-                fechaNacimiento: "10/11/1992",
+                fechaNacimiento: "10 de noviembre de 1992",
                 telefono: "+58 416-5559012",
                 seccion: "IF01-T3",
-                image: "alejandro.jpg",  // Cambia por tu imagen
+                image: "alejandro.jpg",
                 social: [
-                    { name: "linkedin", url: "https://linkedin.com/in/alejandromedina" },
-                    { name: "github", url: "https://github.com/alejandromedina" },
-                    { name: "twitter", url: "https://twitter.com/amedinadev" }
+                    { icon: "linkedin", url: "#" },
+                    { icon: "github", url: "#" },
+                    { icon: "aws", url: "#" },
+                    { icon: "envelope", url: "mailto:alejandro@example.com" }
                 ]
             }
         ];
 
-        // [El resto del código JavaScript se mantiene igual]
-        // ...
+        // DOM Elements
+        const membersGrid = document.getElementById('membersGrid');
+        const memberModal = document.getElementById('memberModal');
+        const modalBody = document.getElementById('modalBody');
+        const closeModal = document.getElementById('closeModal');
+
+        // Render team members
+        function renderTeamMembers() {
+            membersGrid.innerHTML = '';
+            
+            teamMembers.forEach(member => {
+                const memberCard = document.createElement('div');
+                memberCard.className = 'member-card';
+                memberCard.innerHTML = `
+                    <img src="${member.image}" alt="${member.name}" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">${member.name}</h3>
+                        <span class="member-position">${member.position}</span>
+                        <p class="member-bio">${member.bio.substring(0, 150)}...</p>
+                        <button class="view-btn" data-id="${member.id}">Ver Perfil</button>
+                    </div>
+                `;
+                
+                membersGrid.appendChild(memberCard);
+            });
+
+            // Add event listeners to buttons
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const memberId = parseInt(e.target.getAttribute('data-id'));
+                    showMemberDetails(memberId);
+                });
+            });
+        }
+
+        // Show member details in modal
+        function showMemberDetails(memberId) {
+            const member = teamMembers.find(m => m.id === memberId);
+            if (!member) return;
+
+            modalBody.innerHTML = `
+                <img src="${member.image}" alt="${member.name}" class="modal-image">
+                <div class="modal-info">
+                    <h2 class="modal-name">${member.name}</h2>
+                    <p class="modal-position">${member.position}</p>
+                    
+                    <div class="personal-data">
+                        <div class="data-item">
+                            <span class="data-label">Cédula</span>
+                            <span class="data-value">${member.cedula}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Fecha de Nacimiento</span>
+                            <span class="data-value">${member.fechaNacimiento}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Teléfono</span>
+                            <span class="data-value">${member.telefono}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Sección</span>
+                            <span class="data-value">${member.seccion}</span>
+                        </div>
+                    </div>
+                    
+                    <p class="modal-bio">${member.bio}</p>
+                    
+                    <div class="social-links">
+                        ${member.social.map(social => `
+                            <a href="${social.url}" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-${social.icon}"></i>
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            memberModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeMemberModal() {
+            memberModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Event listeners
+        closeModal.addEventListener('click', closeMemberModal);
+        memberModal.addEventListener('click', (e) => {
+            if (e.target === memberModal) {
+                closeMemberModal();
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTeamMembers();
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeMemberModal();
+                }
+            });
+        });
     </script>
 </body>
 </html>
